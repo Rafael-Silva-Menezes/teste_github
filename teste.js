@@ -1,6 +1,6 @@
-const { cpf } = require("cpf-cnpj-validator");
+const { cpf , cnpj } = require("cpf-cnpj-validator");
 
-function validacao(numero) {
+function validacaoCpf(numero) {
   let valid = cpf.isValid(numero);
   if (valid === true) {
     console.log("CPF válido");
@@ -9,6 +9,18 @@ function validacao(numero) {
   }
 }
 
-const teste = '0b807592558'
+function validacaoCnpj(numero) {
+  let valid = cnpj.isValid(numero);
+  if (valid === true) {
+    console.log("CNPJ válido");
+  } else {
+    console.log("CNPJ inválido");
+  }
+}
 
-validacao(teste)
+const teste = cpf.generate();
+validacaoCpf(teste)
+
+const abc = cnpj.generate();
+validacaoCnpj(abc)
+
